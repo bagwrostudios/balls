@@ -8,6 +8,30 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>phy_speed_x = random_range(-3,3)
+phy_speed_y = random_range(-5,-8)
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="3" enumb="1">
       <action>
         <libid>1</libid>
@@ -26,78 +50,15 @@
           <argument>
             <kind>1</kind>
             <string>if x &lt; 0 {
-    phy_speed_x = -phy_speed_x;
+    phy_speed_x = -phy_speed_x
 }
-if x &gt; room_width {
-     phy_speed_x = -phy_speed_x;
+if x &gt; room_width - 32 {
+     phy_speed_x = -phy_speed_x
+}
+if y &lt; -20 {
+    phy_speed_y = -phy_speed_y
 }
 </string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_ball">
-      <action>
-        <libid>1</libid>
-        <id>514</id>
-        <kind>0</kind>
-        <userelative>-1</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_draw_text</functionname>
-        <codestring></codestring>
-        <whoName>other</whoName>
-        <relative>-1</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>2</kind>
-            <string>bounce!</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>0</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>0</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>511</id>
-        <kind>0</kind>
-        <userelative>-1</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_draw_rectangle</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>-1</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>0</kind>
-            <string>0</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>0</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>50</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>50</string>
-          </argument>
-          <argument>
-            <kind>4</kind>
-            <string>0</string>
           </argument>
         </arguments>
       </action>
@@ -121,10 +82,26 @@ if x &gt; room_width {
             <kind>1</kind>
             <string>
 
-physics_apply_impulse(x, y, 10*(x - mouse_x), -100 - 100/(mouse_y - y))
+physics_apply_impulse(x, y, 10*(x - mouse_x), -200 - 100/(mouse_y - y))
 </string>
           </argument>
         </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>203</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_kill_object</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
       </action>
     </event>
   </events>

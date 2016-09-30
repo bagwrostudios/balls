@@ -2,13 +2,13 @@
 <object>
   <spriteName>spr_player</spriteName>
   <solid>0</solid>
-  <visible>0</visible>
+  <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
-    <event eventtype="6" enumb="4">
+    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -25,7 +25,37 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>instance_create(mouse_x, mouse_y, obj_click);
+            <string>if !instance_exists(obj_ball)
+{
+    show_message("you lost bruh, here try again")
+    room_restart()
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>instance_create(random_range(room_width*0.2,room_width*0.3), room_height*0.8, obj_ball)
+instance_create(random_range(room_width*0.4,room_width*0.6), room_height*0.8, obj_ball)
+instance_create(random_range(room_width*0.7,room_width*0.8), room_height*0.8, obj_ball)
+
 </string>
           </argument>
         </arguments>
